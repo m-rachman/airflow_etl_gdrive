@@ -1,0 +1,56 @@
+[2024-05-30T10:00:39.782+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_files.combine_files scheduled__2024-03-17T08:00:00+00:00 [queued]>
+[2024-05-30T10:00:39.868+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_files.combine_files scheduled__2024-03-17T08:00:00+00:00 [queued]>
+[2024-05-30T10:00:39.870+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-05-30T10:00:40.106+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): combine_files> on 2024-03-17 08:00:00+00:00
+[2024-05-30T10:00:40.144+0000] {standard_task_runner.py:60} INFO - Started process 744 to run task
+[2024-05-30T10:00:40.241+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_files', 'combine_files', 'scheduled__2024-03-17T08:00:00+00:00', '--job-id', '50', '--raw', '--subdir', 'DAGS_FOLDER/testfile.py', '--cfg-path', '/tmp/tmpmaicrwpw']
+[2024-05-30T10:00:40.333+0000] {standard_task_runner.py:88} INFO - Job 50: Subtask combine_files
+[2024-05-30T10:00:40.866+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_files.combine_files scheduled__2024-03-17T08:00:00+00:00 [running]> on host 9daf870c1958
+[2024-05-30T10:00:41.683+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_csv_files' AIRFLOW_CTX_TASK_ID='combine_files' AIRFLOW_CTX_EXECUTION_DATE='2024-03-17T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-17T08:00:00+00:00'
+[2024-05-30T10:00:41.868+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/testfile.py", line 55, in combine_files
+    df = df_customer.set_index('customer_id').join(df_purchase.set_index('customer_id'), how='outer').reset_index()
+AttributeError: 'NoneType' object has no attribute 'set_index'
+[2024-05-30T10:00:41.946+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=etl_csv_files, task_id=combine_files, execution_date=20240317T080000, start_date=20240530T100039, end_date=20240530T100041
+[2024-05-30T10:00:42.117+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 50 for task combine_files ('NoneType' object has no attribute 'set_index'; 744)
+[2024-05-30T10:00:42.223+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-05-30T10:00:42.534+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-05-31T14:47:23.571+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_files.combine_files scheduled__2024-03-17T08:00:00+00:00 [queued]>
+[2024-05-31T14:47:23.584+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_files.combine_files scheduled__2024-03-17T08:00:00+00:00 [queued]>
+[2024-05-31T14:47:23.585+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-05-31T14:47:23.600+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): combine_files> on 2024-03-17 08:00:00+00:00
+[2024-05-31T14:47:23.604+0000] {standard_task_runner.py:60} INFO - Started process 431 to run task
+[2024-05-31T14:47:23.608+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_files', 'combine_files', 'scheduled__2024-03-17T08:00:00+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/testfile.py', '--cfg-path', '/tmp/tmpfxgg5_7s']
+[2024-05-31T14:47:23.611+0000] {standard_task_runner.py:88} INFO - Job 40: Subtask combine_files
+[2024-05-31T14:47:23.684+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_files.combine_files scheduled__2024-03-17T08:00:00+00:00 [running]> on host 66ed76cf62da
+[2024-05-31T14:47:23.953+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_csv_files' AIRFLOW_CTX_TASK_ID='combine_files' AIRFLOW_CTX_EXECUTION_DATE='2024-03-17T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-17T08:00:00+00:00'
+[2024-05-31T14:47:24.159+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/testfile.py", line 55, in combine_files
+    df = df_customer.set_index('customer_id').join(df_purchase.set_index('customer_id'), how='outer').reset_index()
+AttributeError: 'NoneType' object has no attribute 'set_index'
+[2024-05-31T14:47:24.223+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=etl_csv_files, task_id=combine_files, execution_date=20240317T080000, start_date=20240531T144723, end_date=20240531T144724
+[2024-05-31T14:47:24.279+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 40 for task combine_files ('NoneType' object has no attribute 'set_index'; 431)
+[2024-05-31T14:47:24.329+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-05-31T14:47:24.392+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

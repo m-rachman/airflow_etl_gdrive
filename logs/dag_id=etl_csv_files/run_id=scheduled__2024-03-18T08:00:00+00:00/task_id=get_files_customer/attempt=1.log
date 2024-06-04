@@ -1,0 +1,40 @@
+[2024-05-30T10:00:16.735+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_files.get_files_customer scheduled__2024-03-18T08:00:00+00:00 [queued]>
+[2024-05-30T10:00:16.771+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_files.get_files_customer scheduled__2024-03-18T08:00:00+00:00 [queued]>
+[2024-05-30T10:00:16.777+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-05-30T10:00:16.892+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): get_files_customer> on 2024-03-18 08:00:00+00:00
+[2024-05-30T10:00:16.944+0000] {standard_task_runner.py:60} INFO - Started process 628 to run task
+[2024-05-30T10:00:17.093+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_files', 'get_files_customer', 'scheduled__2024-03-18T08:00:00+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/etl_from_csv.py', '--cfg-path', '/tmp/tmprlgxg4bf']
+[2024-05-30T10:00:17.123+0000] {standard_task_runner.py:88} INFO - Job 26: Subtask get_files_customer
+[2024-05-30T10:00:17.888+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_files.get_files_customer scheduled__2024-03-18T08:00:00+00:00 [running]> on host 9daf870c1958
+[2024-05-30T10:00:20.374+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_csv_files' AIRFLOW_CTX_TASK_ID='get_files_customer' AIRFLOW_CTX_EXECUTION_DATE='2024-03-18T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-18T08:00:00+00:00'
+[2024-05-30T10:00:22.190+0000] {logging_mixin.py:188} INFO - Sample data :
+[2024-05-30T10:00:22.263+0000] {logging_mixin.py:188} INFO -    customer_id  page_views  time_spent
+0            1          25         120
+1            2          20          90
+2            3          30         150
+3            4          15          80
+4            5          22         110
+[2024-05-30T10:00:22.329+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-05-30T10:00:22.490+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=etl_csv_files, task_id=get_files_customer, execution_date=20240318T080000, start_date=20240530T100016, end_date=20240530T100022
+[2024-05-30T10:00:22.822+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-05-30T10:00:22.956+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-05-31T14:47:16.174+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_files.get_files_customer scheduled__2024-03-18T08:00:00+00:00 [queued]>
+[2024-05-31T14:47:16.263+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_files.get_files_customer scheduled__2024-03-18T08:00:00+00:00 [queued]>
+[2024-05-31T14:47:16.356+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-05-31T14:47:16.830+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): get_files_customer> on 2024-03-18 08:00:00+00:00
+[2024-05-31T14:47:17.124+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_files', 'get_files_customer', 'scheduled__2024-03-18T08:00:00+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/etl_from_csv.py', '--cfg-path', '/tmp/tmp06lt7atc']
+[2024-05-31T14:47:17.140+0000] {standard_task_runner.py:88} INFO - Job 20: Subtask get_files_customer
+[2024-05-31T14:47:17.106+0000] {standard_task_runner.py:60} INFO - Started process 398 to run task
+[2024-05-31T14:47:17.511+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_files.get_files_customer scheduled__2024-03-18T08:00:00+00:00 [running]> on host 66ed76cf62da
+[2024-05-31T14:47:17.881+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_csv_files' AIRFLOW_CTX_TASK_ID='get_files_customer' AIRFLOW_CTX_EXECUTION_DATE='2024-03-18T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-18T08:00:00+00:00'
+[2024-05-31T14:47:19.705+0000] {logging_mixin.py:188} INFO - Sample data :
+[2024-05-31T14:47:19.825+0000] {logging_mixin.py:188} INFO -    customer_id  page_views  time_spent
+0            1          25         120
+1            2          20          90
+2            3          30         150
+3            4          15          80
+4            5          22         110
+[2024-05-31T14:47:20.095+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-05-31T14:47:20.413+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=etl_csv_files, task_id=get_files_customer, execution_date=20240318T080000, start_date=20240531T144716, end_date=20240531T144720
+[2024-05-31T14:47:21.421+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-05-31T14:47:21.580+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

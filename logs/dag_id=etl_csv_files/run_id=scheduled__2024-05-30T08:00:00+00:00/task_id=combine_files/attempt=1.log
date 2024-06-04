@@ -1,0 +1,34 @@
+[2024-05-31T14:55:09.680+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_files.combine_files scheduled__2024-05-30T08:00:00+00:00 [queued]>
+[2024-05-31T14:55:09.685+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_files.combine_files scheduled__2024-05-30T08:00:00+00:00 [queued]>
+[2024-05-31T14:55:09.685+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-05-31T14:55:09.694+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): combine_files> on 2024-05-30 08:00:00+00:00
+[2024-05-31T14:55:09.697+0000] {standard_task_runner.py:60} INFO - Started process 1111 to run task
+[2024-05-31T14:55:09.700+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_files', 'combine_files', 'scheduled__2024-05-30T08:00:00+00:00', '--job-id', '167', '--raw', '--subdir', 'DAGS_FOLDER/testfile.py', '--cfg-path', '/tmp/tmp3xlcssec']
+[2024-05-31T14:55:09.701+0000] {standard_task_runner.py:88} INFO - Job 167: Subtask combine_files
+[2024-05-31T14:55:09.730+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_files.combine_files scheduled__2024-05-30T08:00:00+00:00 [running]> on host 66ed76cf62da
+[2024-05-31T14:55:09.775+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_csv_files' AIRFLOW_CTX_TASK_ID='combine_files' AIRFLOW_CTX_EXECUTION_DATE='2024-05-30T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-30T08:00:00+00:00'
+[2024-05-31T14:55:09.854+0000] {logging_mixin.py:188} INFO -    product_id  customer_id  page_views  ...        category price ratings
+0         101          1.0        25.0  ...     Electronics   500     4.5
+1         101          5.0        22.0  ...     Electronics   500     4.5
+2         102          2.0        20.0  ...        Clothing    50     3.8
+3         102         18.0        29.0  ...        Clothing    50     3.8
+4         103          3.0        30.0  ...  Home & Kitchen   200     4.2
+
+[5 rows x 8 columns]
+[2024-05-31T14:55:09.854+0000] {python.py:202} INFO - Done. Returned value was:      product_id  customer_id  page_views  ...        category price ratings
+0           101          1.0        25.0  ...     Electronics   500     4.5
+1           101          5.0        22.0  ...     Electronics   500     4.5
+2           102          2.0        20.0  ...        Clothing    50     3.8
+3           102         18.0        29.0  ...        Clothing    50     3.8
+4           103          3.0        30.0  ...  Home & Kitchen   200     4.2
+..          ...          ...         ...  ...             ...   ...     ...
+502         596          NaN         NaN  ...     Electronics  1410     4.7
+503         597          NaN         NaN  ...          Beauty   690     4.1
+504         598          NaN         NaN  ...        Clothing  1370     3.8
+505         599          NaN         NaN  ...        Clothing  1090     2.0
+506         600          NaN         NaN  ...     Electronics   720     3.4
+
+[507 rows x 8 columns]
+[2024-05-31T14:55:09.877+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=etl_csv_files, task_id=combine_files, execution_date=20240530T080000, start_date=20240531T145509, end_date=20240531T145509
+[2024-05-31T14:55:09.921+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-05-31T14:55:09.937+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

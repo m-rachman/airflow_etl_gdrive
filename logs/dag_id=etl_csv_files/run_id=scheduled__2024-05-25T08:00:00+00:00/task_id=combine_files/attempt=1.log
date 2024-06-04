@@ -1,0 +1,38 @@
+[2024-05-31T14:48:35.586+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_files.combine_files scheduled__2024-05-25T08:00:00+00:00 [queued]>
+[2024-05-31T14:48:35.622+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_files.combine_files scheduled__2024-05-25T08:00:00+00:00 [queued]>
+[2024-05-31T14:48:35.626+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-05-31T14:48:35.659+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): combine_files> on 2024-05-25 08:00:00+00:00
+[2024-05-31T14:48:35.670+0000] {standard_task_runner.py:60} INFO - Started process 830 to run task
+[2024-05-31T14:48:35.674+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_files', 'combine_files', 'scheduled__2024-05-25T08:00:00+00:00', '--job-id', '142', '--raw', '--subdir', 'DAGS_FOLDER/etl_from_csv.py', '--cfg-path', '/tmp/tmpqr0bpsk0']
+[2024-05-31T14:48:35.681+0000] {standard_task_runner.py:88} INFO - Job 142: Subtask combine_files
+[2024-05-31T14:48:35.788+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_files.combine_files scheduled__2024-05-25T08:00:00+00:00 [running]> on host 66ed76cf62da
+[2024-05-31T14:48:36.202+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_csv_files' AIRFLOW_CTX_TASK_ID='combine_files' AIRFLOW_CTX_EXECUTION_DATE='2024-05-25T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-25T08:00:00+00:00'
+[2024-05-31T14:48:36.312+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_from_csv.py", line 53, in combine_files
+    df_customer = pd.read_csv(f'/opt/airflow/data/{list(files.keys())[0]}')
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/data/customer_interactions'
+[2024-05-31T14:48:36.433+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=etl_csv_files, task_id=combine_files, execution_date=20240525T080000, start_date=20240531T144835, end_date=20240531T144836
+[2024-05-31T14:48:36.525+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 142 for task combine_files ([Errno 2] No such file or directory: '/opt/airflow/data/customer_interactions'; 830)
+[2024-05-31T14:48:36.608+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-05-31T14:48:37.307+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

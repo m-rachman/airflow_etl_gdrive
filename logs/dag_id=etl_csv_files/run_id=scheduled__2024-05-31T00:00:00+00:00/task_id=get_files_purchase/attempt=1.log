@@ -1,0 +1,30 @@
+[2024-06-01T10:03:21.119+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: etl_csv_files.get_files_purchase scheduled__2024-05-31T00:00:00+00:00 [queued]>
+[2024-06-01T10:03:21.128+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: etl_csv_files.get_files_purchase scheduled__2024-05-31T00:00:00+00:00 [queued]>
+[2024-06-01T10:03:21.128+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-01T10:03:21.128+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2024-06-01T10:03:21.129+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-01T10:03:21.138+0000] {taskinstance.py:1389} INFO - Executing <Task(_PythonDecoratedOperator): get_files_purchase> on 2024-05-31 00:00:00+00:00
+[2024-06-01T10:03:21.144+0000] {standard_task_runner.py:52} INFO - Started process 359 to run task
+[2024-06-01T10:03:21.147+0000] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_files', 'get_files_purchase', 'scheduled__2024-05-31T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/etl_from_csv.py', '--cfg-path', '/tmp/tmp9izm1fj9', '--error-file', '/tmp/tmp4m4biiu9']
+[2024-06-01T10:03:21.148+0000] {standard_task_runner.py:80} INFO - Job 4: Subtask get_files_purchase
+[2024-06-01T10:03:21.198+0000] {task_command.py:371} INFO - Running <TaskInstance: etl_csv_files.get_files_purchase scheduled__2024-05-31T00:00:00+00:00 [running]> on host 00131c21342c
+[2024-06-01T10:03:21.257+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Rachman
+AIRFLOW_CTX_DAG_ID=etl_csv_files
+AIRFLOW_CTX_TASK_ID=get_files_purchase
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-31T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-05-31T00:00:00+00:00
+[2024-06-01T10:03:22.724+0000] {logging_mixin.py:115} INFO - Sample data :
+[2024-06-01T10:03:22.743+0000] {logging_mixin.py:115} INFO -    customer_id  product_id purchase_date
+0            1         101    2023-01-01
+1            1         105    2023-01-05
+2            2         102    2023-01-02
+3            3         103    2023-01-03
+4            4         104    2023-01-04
+[2024-06-01T10:03:22.748+0000] {python.py:173} INFO - Done. Returned value was: None
+[2024-06-01T10:03:22.766+0000] {taskinstance.py:1412} INFO - Marking task as SUCCESS. dag_id=etl_csv_files, task_id=get_files_purchase, execution_date=20240531T000000, start_date=20240601T100321, end_date=20240601T100322
+[2024-06-01T10:03:22.789+0000] {local_task_job.py:156} INFO - Task exited with return code 0
+[2024-06-01T10:03:22.818+0000] {local_task_job.py:279} INFO - 1 downstream tasks scheduled from follow-on schedule check

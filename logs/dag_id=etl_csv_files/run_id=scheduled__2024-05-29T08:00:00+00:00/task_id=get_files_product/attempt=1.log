@@ -1,0 +1,33 @@
+[2024-05-31T14:49:23.900+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_files.get_files_product scheduled__2024-05-29T08:00:00+00:00 [queued]>
+[2024-05-31T14:49:23.908+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_files.get_files_product scheduled__2024-05-29T08:00:00+00:00 [queued]>
+[2024-05-31T14:49:23.909+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-05-31T14:49:23.919+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): get_files_product> on 2024-05-29 08:00:00+00:00
+[2024-05-31T14:49:23.923+0000] {standard_task_runner.py:60} INFO - Started process 904 to run task
+[2024-05-31T14:49:23.927+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_files', 'get_files_product', 'scheduled__2024-05-29T08:00:00+00:00', '--job-id', '163', '--raw', '--subdir', 'DAGS_FOLDER/testfile.py', '--cfg-path', '/tmp/tmpl7taj12_']
+[2024-05-31T14:49:23.929+0000] {standard_task_runner.py:88} INFO - Job 163: Subtask get_files_product
+[2024-05-31T14:49:24.012+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_files.get_files_product scheduled__2024-05-29T08:00:00+00:00 [running]> on host 66ed76cf62da
+[2024-05-31T14:49:24.484+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='etl_csv_files' AIRFLOW_CTX_TASK_ID='get_files_product' AIRFLOW_CTX_EXECUTION_DATE='2024-05-29T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-29T08:00:00+00:00'
+[2024-05-31T14:49:27.047+0000] {logging_mixin.py:188} INFO - Sample data :
+[2024-05-31T14:49:27.061+0000] {logging_mixin.py:188} INFO -    product_id        category  price  ratings
+0         101     Electronics    500      4.5
+1         102        Clothing     50      3.8
+2         103  Home & Kitchen    200      4.2
+3         104          Beauty     30      4.0
+4         105     Electronics    800      4.8
+[2024-05-31T14:49:27.062+0000] {python.py:202} INFO - Done. Returned value was:      product_id        category  price  ratings
+0           101     Electronics    500      4.5
+1           102        Clothing     50      3.8
+2           103  Home & Kitchen    200      4.2
+3           104          Beauty     30      4.0
+4           105     Electronics    800      4.8
+..          ...             ...    ...      ...
+495         596     Electronics   1410      4.7
+496         597          Beauty    690      4.1
+497         598        Clothing   1370      3.8
+498         599        Clothing   1090      2.0
+499         600     Electronics    720      3.4
+
+[500 rows x 4 columns]
+[2024-05-31T14:49:27.166+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=etl_csv_files, task_id=get_files_product, execution_date=20240529T080000, start_date=20240531T144923, end_date=20240531T144927
+[2024-05-31T14:49:27.225+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-05-31T14:49:27.256+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

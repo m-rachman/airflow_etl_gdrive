@@ -1,0 +1,32 @@
+[2024-06-01T10:09:35.605+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: etl_csv_files.preprocess_data manual__2024-06-01T10:09:30.734786+00:00 [queued]>
+[2024-06-01T10:09:35.610+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: etl_csv_files.preprocess_data manual__2024-06-01T10:09:30.734786+00:00 [queued]>
+[2024-06-01T10:09:35.610+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-01T10:09:35.610+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 1
+[2024-06-01T10:09:35.610+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2024-06-01T10:09:35.617+0000] {taskinstance.py:1389} INFO - Executing <Task(_PythonDecoratedOperator): preprocess_data> on 2024-06-01 10:09:30.734786+00:00
+[2024-06-01T10:09:35.620+0000] {standard_task_runner.py:52} INFO - Started process 538 to run task
+[2024-06-01T10:09:35.622+0000] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_files', 'preprocess_data', 'manual__2024-06-01T10:09:30.734786+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/etl_from_csv.py', '--cfg-path', '/tmp/tmp6pqy9ngo', '--error-file', '/tmp/tmp885utrqp']
+[2024-06-01T10:09:35.623+0000] {standard_task_runner.py:80} INFO - Job 16: Subtask preprocess_data
+[2024-06-01T10:09:35.657+0000] {task_command.py:371} INFO - Running <TaskInstance: etl_csv_files.preprocess_data manual__2024-06-01T10:09:30.734786+00:00 [running]> on host 00131c21342c
+[2024-06-01T10:09:35.691+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Rachman
+AIRFLOW_CTX_DAG_ID=etl_csv_files
+AIRFLOW_CTX_TASK_ID=preprocess_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-06-01T10:09:30.734786+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-06-01T10:09:30.734786+00:00
+[2024-06-01T10:09:35.701+0000] {logging_mixin.py:115} INFO - Preprocessed data:
+[2024-06-01T10:09:35.708+0000] {logging_mixin.py:115} INFO -    product_id  customer_id  page_views  ...        category price ratings
+0         101            1          25  ...     Electronics   500     4.5
+1         101            5          22  ...     Electronics   500     4.5
+2         102            2          20  ...        Clothing    50     3.8
+3         102           18          29  ...        Clothing    50     3.8
+4         103            3          30  ...  Home & Kitchen   200     4.2
+
+[5 rows x 8 columns]
+[2024-06-01T10:09:35.710+0000] {python.py:173} INFO - Done. Returned value was: None
+[2024-06-01T10:09:35.715+0000] {taskinstance.py:1412} INFO - Marking task as SUCCESS. dag_id=etl_csv_files, task_id=preprocess_data, execution_date=20240601T100930, start_date=20240601T100935, end_date=20240601T100935
+[2024-06-01T10:09:35.722+0000] {local_task_job.py:156} INFO - Task exited with return code 0
+[2024-06-01T10:09:35.741+0000] {local_task_job.py:279} INFO - 1 downstream tasks scheduled from follow-on schedule check
