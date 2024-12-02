@@ -11,6 +11,7 @@ dag = DAG(
     catchup=False
 )
 
+start = EmptyOperator(task_id='start', dag=dag)
 
 def get_quotes():
     url = 'https://type.fit/api/quotes'
@@ -34,7 +35,7 @@ def return_quotes(**kwargs):
     print(f"YOUR DAILY QUOTES = {quotes[rand_number]['text']} from {quotes[rand_number]['author']}")
 
 
-start = EmptyOperator(task_id='start', dag=dag)
+
 end = EmptyOperator(task_id='end', dag=dag)
 
 get_quotes_task = PythonOperator(
