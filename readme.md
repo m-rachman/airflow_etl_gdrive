@@ -1,0 +1,1 @@
+Run compose file using `docker compose -f airflow.yaml up`
