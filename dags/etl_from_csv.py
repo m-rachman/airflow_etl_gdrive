@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from airflow import DAG
 from airflow.decorators import task
 from airflow.operators.empty import EmptyOperator
-from airflow.models import Variable
+from dateutil import parser
 
 
 default_args= {
@@ -74,20 +74,30 @@ with DAG(
 
     @task()
     def preprocess_data():
+
+
         df = pd.read_csv('/opt/airflow/data/data_combine.csv')
         
-        # Handle missing values (example: fill missing numeric values with the mean)
+        # Handle missing values numeric
         df.fillna(df.mean(numeric_only=True), inplace=True)
+
+        # Handle missing values non-numeric → fill with 'Unknown'
+        for col in df.select_dtypes(include=['object']).columns:
+            df[col].fillna('Unknown', inplace=True)
+
+        # Convert purchase_date to datetime (tolerant to various formats)
+        def parse_date_safe(x):
+            try:
+                return parser.parse(str(x))
+            except (parser.ParserError, TypeError, ValueError):
+                return pd.NaT
         
-        # Convert data types if necessary (example: ensure 'purchase_date' is datetime)
-        df['purchase_date'] = pd.to_datetime(df['purchase_date'], errors='coerce')
-        
-        # Remove duplicates if any
+        if 'purchase_date' in df.columns:
+            df['purchase_date'] = df['purchase_date'].apply(parse_date_safe)
+
+        # Drop duplicate rows
         df.drop_duplicates(inplace=True)
 
-        # Any other preprocessing steps can be added here
-
-        print("Preprocessed data is Success")
         print(df.head())
         df.to_csv('/opt/airflow/data/data_combine_preprocessed.csv', index=False)
 
